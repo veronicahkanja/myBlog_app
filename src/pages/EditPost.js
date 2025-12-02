@@ -30,3 +30,39 @@ function EditPost() {
       .then(() => navigate(`/posts/${id}`)) // Redirect to the post page
       .catch((err) => console.error("Error updating post:", err));
   }
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1>Edit Post</h1>
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+            style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+          />
+        </div>
+
+        <div>
+          <textarea
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            required
+            style={{ width: "100%", padding: "10px", height: "150px" }}
+          />
+        </div>
+
+        <button
+          type="submit"
+          style={{ marginTop: "10px", padding: "10px 20px" }}
+        >
+          Update Post
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default EditPost;
