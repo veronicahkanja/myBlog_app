@@ -13,6 +13,16 @@ useEffect(() =>{
       .then((data) => setPost(data))
       .catch((err) => console.error("Error fetching post:", err));
 }, [id]);    
+// Delete post function 
+function handleDelete() {
+    fetch(`http://localhost:8000/posts/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => navigate("/")) // Go back to Home after deletion
+      .catch((err) => console.error("Error deleting post:", err));
+}
+
+
   return (
     <div>
       
