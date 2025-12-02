@@ -15,10 +15,31 @@ function Home() {
         .catch((err) => console.error("Error fetching posts:", err));
     }, []);
   return (
-    <div>
-      
+    <div style={{ padding: "20px" }}>
+      <h1>Blog Posts</h1>
+      <Link to="/new">Create New Post</Link>
+
+      <div style={{ marginTop: "20px" }}>
+        {posts.length === 0 ? (
+          <p>No posts yet.</p>
+        ) : (
+          posts.map((post) => (
+            <div
+              key={post.id}
+              style={{
+                border: "1px solid #ccc",
+                padding: "10px",
+                marginBottom: "10px",
+              }}
+            >
+              <h2>{post.title}</h2>
+              <Link to={`/posts/${post.id}`}>Read More</Link>
+            </div>
+          ))
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
 export default Home
