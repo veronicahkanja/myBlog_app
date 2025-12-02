@@ -20,10 +20,10 @@ function Home() {
       <Link to="/new">Create New Post</Link>
 
       <div style={{ marginTop: "20px" }}>
-        {posts.length === 0 ? (
+        {posts.length === 0 ? ( // conditional rendering
           <p>No posts yet.</p>
         ) : (
-          posts.map((post) => (
+          posts.map((post) => ( // Loops through the posts and renders them.
             <div
               key={post.id}
               style={{
