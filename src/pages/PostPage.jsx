@@ -22,6 +22,7 @@ function handleDelete() {
       .catch((err) => console.error("Error deleting post:", err));
 }
 
+ if (!post) return <h2>Loading...</h2>; // Show loading while fetching
 
   return (
     <div>
