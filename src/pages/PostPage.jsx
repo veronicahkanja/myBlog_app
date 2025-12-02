@@ -25,10 +25,23 @@ function handleDelete() {
  if (!post) return <h2>Loading...</h2>; // Show loading while fetching
 
   return (
-    <div>
-      
+    <div style={{ padding: "20px" }}>
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+
+      <button onClick={() => navigate(`/edit/${post.id}`)}>Edit</button>
+      <button
+        onClick={handleDelete}
+        style={{ marginLeft: "10px", background: "red", color: "white" }}
+      >
+        Delete
+      </button>
+
+      <br />
+      <br />
+      <Link to="/">← Back Home</Link>
     </div>
-  )
+  );
 }
 
 export default PostPage
