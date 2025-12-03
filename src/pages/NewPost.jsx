@@ -23,16 +23,14 @@ fetch("http://localhost:8000/posts", {
     <div style={{ padding: "20px" }}>
       <h1>Create New Post</h1>
 
-     <form 
+  <form
   onSubmit={handleSubmit}
   style={{
+    maxWidth: "600px",
+    margin: "0 auto",
     display: "flex",
     flexDirection: "column",
     gap: "15px",
-    background: "white",
-    padding: "20px",
-    borderRadius: "10px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
   }}
 >
   <input
@@ -43,42 +41,42 @@ fetch("http://localhost:8000/posts", {
     required
     style={{
       padding: "12px",
-      border: "1px solid #ccc",
+      fontSize: "16px",
       borderRadius: "8px",
-      fontSize: "16px"
+      border: "1px solid #ccc",
     }}
   />
 
   <textarea
-    placeholder="Post Content"
+    placeholder="Write your post..."
     value={body}
     onChange={(e) => setBody(e.target.value)}
     required
     style={{
       padding: "12px",
-      height: "200px",
-      border: "1px solid #ccc",
+      fontSize: "16px",
       borderRadius: "8px",
-      fontSize: "16px"
+      border: "1px solid #ccc",
+      minHeight: "180px",
     }}
   />
 
   <button
     type="submit"
     style={{
-      padding: "12px",
-      background: "black",
+      background: "#0077ff",
       color: "white",
+      padding: "12px",
+      fontSize: "16px",
       border: "none",
       borderRadius: "8px",
       cursor: "pointer",
-      fontSize: "18px"
     }}
   >
-    Save Post
+    Save
   </button>
 </form>
- 
+
     </div>
   );
 }

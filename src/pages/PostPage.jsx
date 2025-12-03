@@ -15,12 +15,15 @@ useEffect(() =>{
 }, [id]);    
 // Delete post function 
 function handleDelete() {
-    fetch(`http://localhost:8000/posts/${id}`, {
-      method: "DELETE",
-    })
-      .then(() => navigate("/")) // Go back to Home after deletion
-      .catch((err) => console.error("Error deleting post:", err));
+  const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+
+  if (!confirmDelete) return;
+
+  fetch(`http://localhost:8000/posts/${id}`, {
+    method: "DELETE",
+  }).then(() => navigate("/"));
 }
+
 
  if (!post) return <h2>Loading...</h2>; // Show loading while fetching
 
