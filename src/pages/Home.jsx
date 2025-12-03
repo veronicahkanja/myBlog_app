@@ -1,45 +1,54 @@
-import {useState, useEffect} from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
 function Home() {
-    const [posts, setPosts] = useState([]); // here we have used State to store posts
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    // Fetch posts when component Loads
+  useEffect(() => {
+    fetch("http://localhost:8000/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      });
+  }, []);
 
-    useEffect(() => {
-        fetch("http://localhost:8000/posts") // this is our JSON server endpoint
-        .then ((res) => res.json())
-        .then ((data) => setPosts(data)) // save posts in store
-        .catch((err) => console.error("Error fetching posts:", err));
-    }, []);
+  if (loading) return <p>Loading...</p>;
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Blog Posts</h1>
-      <Link to="/new">Create New Post</Link>
+    <div>
+      <h1>All Blog Posts</h1>
 
-      <div style={{ marginTop: "20px" }}>
-        {posts.length === 0 ? ( // conditional rendering
-          <p>No posts yet.</p>
-        ) : (
-          posts.map((post) => ( // Loops through the posts and renders them.
-            <div
-              key={post.id}
+      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            style={{
+              padding: "20px",
+              border: "1px solid #ccc",
+              borderRadius: "10px",
+              background: "white",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
+            }}
+          >
+            <h2>{post.title}</h2>
+            <p>{post.body.substring(0, 120)}...</p>
+            <Link
+              to={`/posts/${post.id}`}
               style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-                marginBottom: "10px",
+                color: "blue",
+                textDecoration: "underline",
+                fontWeight: "bold"
               }}
             >
-              <h2>{post.title}</h2>
-              <Link to={`/posts/${post.id}`}>Read More</Link>
-            </div>
-          ))
-        )}
+              Read More
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-export default Home
+export default Home;

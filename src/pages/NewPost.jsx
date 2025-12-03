@@ -23,35 +23,62 @@ fetch("http://localhost:8000/posts", {
     <div style={{ padding: "20px" }}>
       <h1>Create New Post</h1>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            placeholder="Post Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-          />
-        </div>
+     <form 
+  onSubmit={handleSubmit}
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
+    background: "white",
+    padding: "20px",
+    borderRadius: "10px",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
+  }}
+>
+  <input
+    type="text"
+    placeholder="Post Title"
+    value={title}
+    onChange={(e) => setTitle(e.target.value)}
+    required
+    style={{
+      padding: "12px",
+      border: "1px solid #ccc",
+      borderRadius: "8px",
+      fontSize: "16px"
+    }}
+  />
 
-        <div>
-          <textarea
-            placeholder="Post Content"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            required
-            style={{ width: "100%", padding: "10px", height: "150px" }}
-          />
-        </div>
+  <textarea
+    placeholder="Post Content"
+    value={body}
+    onChange={(e) => setBody(e.target.value)}
+    required
+    style={{
+      padding: "12px",
+      height: "200px",
+      border: "1px solid #ccc",
+      borderRadius: "8px",
+      fontSize: "16px"
+    }}
+  />
 
-        <button
-          type="submit"
-          style={{ marginTop: "10px", padding: "10px 20px" }}
-        >
-          Create Post
-        </button>
-      </form>
+  <button
+    type="submit"
+    style={{
+      padding: "12px",
+      background: "black",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+      fontSize: "18px"
+    }}
+  >
+    Save Post
+  </button>
+</form>
+ 
     </div>
   );
 }
