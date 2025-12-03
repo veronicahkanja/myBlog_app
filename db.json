@@ -1,14 +1,29 @@
 {
   "posts": [
     {
-      "id": "1",
+      "id": 1,
       "title": "My First Blog Post",
       "body": "This is an example blog post."
     },
     {
-      "id": "3617",
+      "id": 2,
       "title": "What My Fitness Journey Taught Me About Discipline and Learning to Code",
-      "body": "Starting my fitness journey was one of the most challenging but rewarding decisions I’ve ever made. When I began working out consistently, I didn’t just improve physically — I discovered habits and lessons that unexpectedly helped me become a better coder too. In this post, I want to share how fitness and programming connected for me, and why I believe taking care of your body can also shape your mind in powerful ways. Consistency Beats Motivation   When I first started going to the gym, I relied heavily on motivation. Some days I was excited; other days I wanted to quit. But I quickly learned that showing up — even when I didn’t feel like it — made the biggest difference.\nCoding is exactly the same. There are days when JavaScript throws errors that don’t make sense, or when a project feels too big. But progress happens when you keep showing up, writing code, debugging, and trying again.\n\n2. The 1% Better Rule Works Everywhere\n\nFitness taught me that small progress adds up. Lifting 1kg more, running one minute longer, or improving my form just a little each time eventually led to major changes.\nWhen I began programming, this mindset helped me stay calm. I didn’t need to become an expert overnight — just improve a bit each day. The small wins in coding, like understanding a new concept or solving a bug, built my confidence over time.\n\n3. Discipline Is a Skill You Build\n\nBefore fitness, I thought discipline was something people were born with. But I learned that discipline grows through habits.\nThe same applies to coding. The more I practiced — even when it was hard — the easier it became to stay focused, learn new technologies, and work on projects without giving up too fast.\n\n4. Tracking Progress Keeps You Motivated\n\nIn the gym, I tracked my workouts and saw how far I was coming. That made me more excited to continue.\nWith coding, tracking progress — whether through completed challenges, Github commits, or small projects — gives me that same push. Seeing your growth laid out in front of you makes the journey feel worthwhile.\n\n5. Both Require Patience and Self-Kindness\n\nSome weeks in the gym are amazing, and some feel slow. It’s the same with learning to code.\nI’ve learned not to be too hard on myself. Growth doesn’t happen in a straight line. What matters is staying committed, being patient, and believing in the process.\n\nConclusion\n\nMy fitness journey isn’t just about getting stronger physically — it’s also about strengthening my mindset. It taught me discipline, consistency, patience, and resilience. These same qualities have helped me stay committed to learning programming and improving my skills as a developer.\nIf there’s one thing I’ve learned, it’s this: how you do one hard thing shapes how you do everything else. Fitness taught me to push myself, and coding allows me to apply that same discipline in a different way.\nWhether you’re lifting weights or writing JavaScript, progress comes from showing up, doing your best, and trusting the journey."
+      "body": "Starting my fitness journey was one of the most challenging but rewarding decisions I’ve ever made. ..."
+    },
+    {
+      "id": 3,
+      "title": "Top 5 React Best Practices in 2025",
+      "body": "React continues to evolve and mastering best practices ensures your apps are performant and maintainable.\n\n1. Use Functional Components & Hooks: Functional components are now standard. Hooks like useState and useEffect simplify state management.\n2. **Component Reusability:** Build small, reusable components for cleaner code and faster development.\n3. **Lazy Loading & Code Splitting:** Improve performance by loading only what’s needed.\n4. **Type Checking:** Use PropTypes or TypeScript for safer components.\n5. **State Management Choices:** Prefer React Query or Zustand for scalable state management instead of prop drilling.\n\nFollowing these best practices will help your React apps stay modern, maintainable, and efficient."
+    },
+    {
+      "id": 4,
+      "title": "Why TypeScript is Becoming Essential",
+      "body": "TypeScript has gained massive popularity in recent years due to its ability to prevent bugs and improve code maintainability.\n\n- Static Typing: Helps catch errors at compile-time instead of runtime.\n- Better IDE Support: Autocomplete and type inference make development faster.\n- Scalability: Makes large codebases easier to manage.\n- Community & Libraries: Most modern libraries provide TypeScript types, enhancing integration.\n\nFor developers looking to write safer, more robust code, TypeScript is quickly becoming a must-learn language in modern web development."
+    },
+    {
+      "id": 5,
+      "title": "How AI is Changing Web Development",
+      "body": "Artificial Intelligence is reshaping how we build and interact with web applications.\n\n- Code Assistance: Tools like GitHub Copilot help developers write code faster.\n- Personalization: AI algorithms can deliver customized experiences to users.\n- Automated Testing: AI-powered tools can detect bugs and optimize performance.\n- Chatbots & Virtual Assistants: Improve customer interaction and support.\n\nAI integration in web development is no longer optional; it’s becoming a key skill for modern developers."
     }
   ]
 }

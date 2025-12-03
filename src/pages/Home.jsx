@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:8000/posts")
@@ -11,59 +13,74 @@ function Home() {
       .then((data) => {
         setPosts(data);
         setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  if (loading)
+    return <h2 style={{ textAlign: "center", marginTop: "50px" }}>Loading...</h2>;
 
   return (
-  <div style={{ padding: "20px" }}>
-    <h1>All Blog Posts</h1>
-
-    {/* Search Bar (added now, but we will activate it later) */}
-    <input
-      type="text"
-      placeholder="Search posts..."
+    <div
       style={{
-        width: "100%",
-        padding: "12px",
-        marginBottom: "20px",
-        fontSize: "16px",
-        borderRadius: "8px",
-        border: "1px solid #ccc"
+        minHeight: "100vh",
+        backgroundColor: "#f0f2f5",
+        padding: "40px",
+        boxSizing: "border-box",
       }}
-    />
+    >
+      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+        <h1 style={{ textAlign: "center", marginBottom: "30px" }}>Blog Posts</h1>
 
-    {/* Posts Container */}
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-      gap: "20px",
-    }}>
-      {posts.map((post) => (
-        <div
-          key={post.id}
+        <input
+          type="text"
+          placeholder="Search posts..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           style={{
-            background: "white",
-            padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            width: "100%",
+            padding: "12px 15px",
+            marginBottom: "30px",
+            fontSize: "16px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
           }}
-        >
-          <h2>{post.title}</h2>
-          <p>{post.body.substring(0, 100)}...</p>
-          <a
-            href={`/posts/${post.id}`}
-            style={{ color: "#0077ff", textDecoration: "none" }}
-          >
-            Read More →
-          </a>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+        />
 
+        {filteredPosts.length === 0 ? (
+          <p style={{ textAlign: "center" }}>No posts found.</p>
+        ) : (
+          filteredPosts.map((post) => (
+            <div
+              key={post.id}
+              style={{
+                backgroundColor: "white",
+                padding: "20px",
+                marginBottom: "20px",
+                borderRadius: "10px",
+                boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
+              }}
+            >
+              <h2>{post.title}</h2>
+              <p style={{ maxHeight: "60px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "pre-line" }}>
+                {post.body}
+              </p>
+              <Link to={`/posts/${post.id}`} style={{ color: "#007BFF", fontWeight: "bold" }}>
+                Read More →
+              </Link>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default Home;
